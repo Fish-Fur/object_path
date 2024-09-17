@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors               = ['Drew Thorp']
   spec.email                 = ['gems@fishfur.com']
   spec.summary               = 'Object representing a path through an object graph.'
-  spec.description           = 'Also the create of an object that hold the steps through an ' \
+  spec.description           = 'Allow the creation of an object that holds the steps through an ' \
                                'object graph to retrieve a value(s).'
   spec.homepage              = 'https://github.com/Fish-Fur/object_path'
   spec.license               = 'Apache-2.0'
