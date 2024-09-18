@@ -92,4 +92,14 @@ path = ObjectPaths::ObjectPath.new('addresses/street')
 path.resolve(person) # => ['123 Main Street', '456 High Street']
 ```
 
+### String & Array Extensions
 
+To ease the creating of new Object Paths the +String+ and +Array+ classes have been extended to allow them to be converted to Object Paths.  In both cases the instance method +to_object_path+ can be called to perform the conversions.
+
+```ruby
+require 'object_paths/object_path'
+
+'address/street'.to_object_path
+['address', 'street'].to_object_path
+%i[address street].to_object_path
+```
