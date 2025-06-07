@@ -28,4 +28,4 @@ Metrics/MethodLength:
     - "spec/**/*"
 
 RSpec/MultipleExpectations:
-  Max: 3
+  Max: 2

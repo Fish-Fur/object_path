@@ -38,10 +38,13 @@ RSpec.describe ObjectPaths::ObjectPath do
 
   describe '#initialize' do
     context 'when initialized with a existing ObjectPath' do
+      original_path = described_class.new('sub_models/the_answer')
+      path = described_class.new(original_path)
       it 'creates a new ObjectPath with the same path steps' do
-        original_path = described_class.new('sub_models/the_answer')
-        path = described_class.new(original_path)
         expect(path).to be_a(described_class)
+      end
+
+      it 'copies the path steps from the original ObjectPath' do
         expect(path.path_steps).to eq(original_path.path_steps)
       end
     end
