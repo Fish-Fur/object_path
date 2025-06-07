@@ -1,4 +1,6 @@
-require: rubocop-rake
+require:
+  - rubocop-rake
+  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 3.0
@@ -15,12 +17,15 @@ Metrics/BlockLength:
 
 Metrics/AbcSize:
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
 
 Metrics/CyclomaticComplexity:
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
 
 Metrics/MethodLength:
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
+
+RSpec/MultipleExpectations:
+  Max: 3
