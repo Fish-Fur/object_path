@@ -103,3 +103,38 @@ require 'object_paths/object_path'
 ['address', 'street'].to_object_path
 %i[address street].to_object_path
 ```
+
+### Class/Module Support
+
+The +ObjectPaths::ModelSupport+ module can be included in a class or module to provide additional methods for working with Object Paths.  This includes the +object_path+ class & instance  methods which can be used to define a path witch a cleaner syntax than `ObjectPaths::ObjectPath.new`.
+
+```ruby
+require 'object_paths/model_support'
+class Address
+  include ObjectPaths::ModelSupport
+end
+
+Address.object_path('street') # => ObjectPaths::ObjectPath
+Address.new.object_path('street') # => ObjectPaths::ObjectPath
+```
+
+The resulting path object is not in anyway directly tied to the enclosing class.  The methods are just syntactic sugar for creating a new Object Path.
+
+The +object_path!+ method can be used to directly resolve the path against the current instance of the class or module.  This is useful for quickly resolving a path without having to create a new Object Path instance.
+
+```ruby
+require 'object_paths/model_support'
+
+class Address
+  include ObjectPaths::ModelSupport
+
+  attr_accessor :street
+
+  def initialize(street)
+    @street = street
+  end
+end
+
+address = Address.new('123 Main Street')
+address.object_path!('street') # => '123 Main Street'
+```

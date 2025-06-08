@@ -48,6 +48,12 @@ RSpec.describe ObjectPaths::ObjectPath do
         expect(path.path_steps).to eq(original_path.path_steps)
       end
     end
+
+    context 'when initialized with anything other that a String, Array or ObjectPath' do
+      it 'raises an IllegalObjectPathDefinitionType' do
+        expect { described_class.new(42) }.to raise_error(ObjectPaths::Errors::IllegalObjectPathDefinitionType)
+      end
+    end
   end
 
   describe '#path_steps' do
